@@ -1,0 +1,22 @@
+const Card = ({
+  index,
+  children,
+  className,
+}: {
+  index?: number;
+  children: React.ReactElement;
+  className?: string;
+}) => {
+  return (
+    <div className={`relative w-full md:w-1/2 h-72 rounded-2xl ${className}`}>
+      <span className='absolute top-3 left-3 text-gray-400 text-2xl font-bold'>
+        {index && `0${index}`}
+      </span>
+      <div className='w-full h-full rounded-2xl p-4 flex items-center justify-center'>
+        <div className='lg:max-w-[50%] w-[70%] md:w-[80%]'>{children}</div>
+      </div>
+    </div>
+  );
+};
+
+export default Card;
