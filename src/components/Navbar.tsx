@@ -81,6 +81,7 @@ const Navbar = () => {
                   ? "font-bold text-white text-4xl"
                   : "font-medium text-gray-400 text-4xl"
               }
+              onClick={() => setIsMenuOpen(false)}
             >
               {page.title}
             </NavLink>
