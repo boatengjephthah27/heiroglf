@@ -22,6 +22,18 @@ const Navbar = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <div
       className={`fixed top-0 left-0 right-0 z-50 w-screen py-4 px-2 transition-all duration-300 ${
@@ -61,7 +73,7 @@ const Navbar = () => {
       <div
         className={`${
           isMenuOpen ? "w-screen" : "w-0"
-        } absolute top-0 left-0 right-0 bottom-0 h-screen overscroll-none overflow-hidden transition-all duration-300 bg-black/90 backdrop-blur-3xl z-50`}
+        } fixed top-0 left-0 right-0 bottom-0 h-screen !overflow-hidden transition-all duration-300 bg-black/90 backdrop-blur-3xl z-50`}
       >
         <div className='flex justify-end items-center pt-4 px-2'>
           <CusBtn
