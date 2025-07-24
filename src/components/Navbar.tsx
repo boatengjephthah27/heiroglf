@@ -5,7 +5,6 @@ import Logo from "./Logo";
 import { Link, NavLink } from "react-router-dom";
 import { CiMenuFries } from "react-icons/ci";
 import { RiCloseLargeLine } from "react-icons/ri";
-import { motion as m } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
