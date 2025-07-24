@@ -1,3 +1,4 @@
+import { motion as m } from "framer-motion";
 import LogoInCircles from "../components/LogoInCircles";
 import SectionTitle from "../components/SectionTitle";
 
@@ -19,10 +20,20 @@ const AccomplishAnything = () => {
                 className='flex items-center flex-col lg:flex-row justify-center gap-3 mb-4'
               >
                 <div className='w-2 h-2 rounded-full bg-white lg:block' />
-                <h3 className='text-gray-400 text-center lg:text-left'>
+                <m.h3
+                  className='text-gray-400 text-center lg:text-left'
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                    delay: item * 0.2,
+                  }}
+                >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor
                   sit amet consectetur.
-                </h3>
+                </m.h3>
               </div>
             ))}
           </div>
@@ -36,10 +47,20 @@ const AccomplishAnything = () => {
                 className='flex items-center flex-col lg:flex-row justify-center gap-3 mb-4'
               >
                 <div className='w-2 h-2 rounded-full bg-white lg:block' />
-                <h3 className='text-gray-400 text-center lg:text-left'>
+                <m.h3
+                  className='text-gray-400 text-center lg:text-left'
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                    delay: item * 0.2,
+                  }}
+                >
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit dolor
                   sit amet consectetur.
-                </h3>
+                </m.h3>
               </div>
             ))}
           </div>

@@ -16,7 +16,10 @@ const WhatYouCanDo = () => {
       />
       <div className='mt-12 flex flex-col gap-12'>
         {whatYouCanDo?.map((item, index) => (
-          <div className='flex flex-col md:flex-row items-center justify-between gap-12'>
+          <div
+            key={`${item?.title}-${index}`}
+            className='flex flex-col md:flex-row items-center justify-between gap-12'
+          >
             <Card index={index + 1} className='bg-slate-900'>
               <div className='flex items-center justify-center gap-4 flex-col'>
                 <item.icon className='text-7xl text-gray-200' />

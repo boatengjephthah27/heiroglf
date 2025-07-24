@@ -1,3 +1,5 @@
+import { motion as m } from "framer-motion";
+
 const SectionTitle = ({
   title,
   title2,
@@ -20,16 +22,36 @@ const SectionTitle = ({
       className={`flex w-full flex-col gap-8 items-center justify-center text-center ${containerClassName}`}
     >
       <div className={`flex flex-col gap-2 ${headerClassName}`}>
-        <h2 className={`section-title max-w-md ${titleClassName}`}>{title}</h2>
+        <m.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className={`section-title max-w-md ${titleClassName}`}
+        >
+          {title}
+        </m.h2>
         {title2 && (
-          <h2 className={`section-title max-w-md ${titleClassName}`}>
+          <m.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+            className={`section-title max-w-md ${titleClassName}`}
+          >
             {title2}
-          </h2>
+          </m.h2>
         )}
       </div>
-      <p className={`section-subTitle max-w-md ${subTitleClassName}`}>
+      <m.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: "easeInOut", delay: 0.4 }}
+        className={`section-subTitle max-w-md ${subTitleClassName}`}
+      >
         {subTitle}
-      </p>
+      </m.p>
     </div>
   );
 };

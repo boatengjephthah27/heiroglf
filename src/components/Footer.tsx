@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import { routePages, socials } from "../utils/constants";
 import Logo from "./Logo";
+import { motion as m } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -9,20 +10,39 @@ const Footer = () => {
         <div className='flex flex-col items-center md:items-start justify-center'>
           <div className='flex items-center gap-3'>
             <Logo inner='black' outer='white' />
-            <h3 className='text-white text-2xl font-bold'>HEIROGLF</h3>
+            <m.h3
+              className='text-white text-2xl font-bold'
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              HEIROGLF
+            </m.h3>
           </div>
           <p className='text-white text-center md:text-left mt-7 max-w-44 text-lg leading-6 tracking-wide font-medium'>
             Remaking Cypto Finance for Africa
           </p>
           <div className='flex items-center gap-4 text-white mt-8'>
-            {socials.map((social) => (
+            {socials.map((social, index) => (
               <Link
                 key={social.path}
                 to={social.path}
                 target='_blank'
                 rel='noopener noreferrer'
               >
-                <social.icon className='text-2xl' />
+                <m.span
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeInOut",
+                    delay: index * 0.1,
+                  }}
+                >
+                  <social.icon className='text-2xl' />
+                </m.span>
               </Link>
             ))}
           </div>
@@ -75,24 +95,56 @@ const Footer = () => {
           </div>
         </div>
         <div className='grid grid-cols-1 lg:col-span-1 text-center md:text-left md:grid-cols-3 md:col-span-2 lg:grid-cols-1 md:items-start w-full md:flex-row items-center justify-center gap-8 text-gray-400'>
-          <p className='lg:w-80'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          </p>
-          <p className='lg:w-80'>
-            Quaerat velit molestiae dolor odio mollitia ab nesciunt consectetur.
-          </p>
-          <p className='lg:w-80'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-          </p>
+          {[
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+            "Quaerat velit molestiae dolor odio mollitia ab nesciunt consectetur.",
+            "Lorem ipsum dolor sit, amet consectetur adipisicing elit.",
+          ].map((item, index) => (
+            <m.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.5,
+                ease: "easeInOut",
+                delay: index * 0.2,
+              }}
+              className='lg:w-80'
+              key={index}
+            >
+              {item}
+            </m.p>
+          ))}
         </div>
       </div>
       <div className='border-t border-white/20 mt-12 pt-12 gap-8 text-gray-300 flex flex-col md:flex-row  text-center items-center justify-between'>
         <div>
-          <p>© 2025 Heiroglf. All rights reserved.</p>
+          <m.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            © 2025 Heiroglf. All rights reserved.
+          </m.p>
         </div>
         <div className='flex flex-row gap-4'>
-          <p>Terms and Conditions</p>
-          <p>Privacy Policy</p>
+          <m.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            Terms and Conditions
+          </m.p>
+          <m.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.2 }}
+          >
+            Privacy Policy
+          </m.p>
         </div>
       </div>
     </div>
