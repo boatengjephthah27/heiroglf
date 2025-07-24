@@ -43,7 +43,7 @@ const Hero = () => {
           className='border border-gray-700'
         />
       </m.div>
-      <div className='flex items-center justify-between gap-4 mt-12 w-full px-12'>
+      <div className='flex items-center justify-center md:justify-between gap-4 mt-12 w-full px-12'>
         {clients.map((client, index) => (
           <m.div
             key={client.icon.name}
